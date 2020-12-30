@@ -1,106 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { MdAddShoppingCart } from 'react-icons/md';
+import api from '../../services/api';
 
 import { ProductList } from './styles';
 
-export default function Home() {
-  return (
-    <ProductList>
-      <li>
-        <img
-          src="https://static.netshoes.com.br/produtos/tenis-olympikus-globe-se-814-masculino/26/D22-3837-026/D22-3837-026_zoom2.jpg?ts=1595354797&ims=326x"
-          alt="Tenis"
-        />
+export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: [],
+    };
+  }
 
-        <strong>Tênis top!</strong>
+  async componentDidMount() {
+    const response = await api.get('products');
 
-        <span>R$129,00</span>
+    this.setState({
+      products: response.data,
+    });
+  }
 
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#fff" /> 3
-          </div>
+  render() {
+    const { products } = this.state;
 
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
+    return (
+      <ProductList>
+        {products.map((product) => (
+          <li key={product.id}>
+            <img src={product.image} alt={product.title} />
 
-      <li>
-        <img
-          src="https://static.netshoes.com.br/produtos/tenis-olympikus-globe-se-814-masculino/26/D22-3837-026/D22-3837-026_zoom2.jpg?ts=1595354797&ims=326x"
-          alt="Tenis"
-        />
+            <strong>{product.title}</strong>
 
-        <strong>Tênis top!</strong>
+            <span>{product.price}</span>
 
-        <span>R$129,00</span>
+            <button type="button">
+              <div>
+                <MdAddShoppingCart size={16} color="#fff" /> 3
+              </div>
 
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#fff" /> 3
-          </div>
-
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-
-      <li>
-        <img
-          src="https://static.netshoes.com.br/produtos/tenis-olympikus-globe-se-814-masculino/26/D22-3837-026/D22-3837-026_zoom2.jpg?ts=1595354797&ims=326x"
-          alt="Tenis"
-        />
-
-        <strong>Tênis top!</strong>
-
-        <span>R$129,00</span>
-
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#fff" /> 3
-          </div>
-
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-
-      <li>
-        <img
-          src="https://static.netshoes.com.br/produtos/tenis-olympikus-globe-se-814-masculino/26/D22-3837-026/D22-3837-026_zoom2.jpg?ts=1595354797&ims=326x"
-          alt="Tenis"
-        />
-
-        <strong>Tênis top!</strong>
-
-        <span>R$129,00</span>
-
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#fff" /> 3
-          </div>
-
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-
-      <li>
-        <img
-          src="https://static.netshoes.com.br/produtos/tenis-olympikus-globe-se-814-masculino/26/D22-3837-026/D22-3837-026_zoom2.jpg?ts=1595354797&ims=326x"
-          alt="Tenis"
-        />
-
-        <strong>Tênis top!</strong>
-
-        <span>R$129,00</span>
-
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#fff" /> 3
-          </div>
-
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-    </ProductList>
-  );
+              <span>ADICIONAR AO CARRINHO</span>
+            </button>
+          </li>
+        ))}
+      </ProductList>
+    );
+  }
 }
