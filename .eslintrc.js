@@ -20,5 +20,6 @@ module.exports = {
     // só retorna erro se o meu formato de arquivo for diferente do informado
     'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.js'] }],
     'import/prefer-default-export': 'off',
+    'no-console': ['error', { allow: ['tron'] }],
   },
 };
