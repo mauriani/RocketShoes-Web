@@ -6,14 +6,12 @@ export const ProductList = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   list-style: none;
-
   li {
     display: flex;
     flex-direction: column;
     background: #fff;
     border-radius: 4px;
     padding: 20px;
-
     img {
       align-self: center;
       max-width: 250px;
@@ -25,7 +23,6 @@ export const ProductList = styled.ul`
       color: #333;
       margin-top: 5px;
     }
-
     > span {
       font-size: 21px;
       font-weight: bold;
@@ -38,15 +35,12 @@ export const ProductList = styled.ul`
       border-radius: 4px;
       overflow: hidden;
       margin-top: auto;
-
       display: flex;
       align-items: center;
       transition: background 0.02s;
-
       &:hover {
         background: ${darken(0.03, '#7159c1')};
       }
-
       div {
         display: flex;
         align-items: center;
@@ -56,7 +50,6 @@ export const ProductList = styled.ul`
       svg {
         margin-right: 5px;
       }
-
       span {
         flex: 1;
         text-align: center;
