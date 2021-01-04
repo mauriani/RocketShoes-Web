@@ -1,6 +1,9 @@
 ### RocketShoes
 
-Essa aplicação foi desenvolvida no módulo 07 do curso GoStack/Bootcamp da **Rocketseat.** O intuito desse módulo foi entender o que é redux e como usar
+Essa aplicação foi desenvolvida no módulo 07 do curso GoStack/Bootcamp da **Rocketseat.** O intuito desse módulo foi entender o que é redux e como usar.
+
+
+<img src="https://user-images.githubusercontent.com/32397288/103532074-589aba80-4e69-11eb-9a2f-a4a31799c6a7.png" width="200"> | <img src="https://user-images.githubusercontent.com/32397288/103532105-65b7a980-4e69-11eb-875d-d0ef364c3c22.png" width="200"> 
 
 ### API
 
